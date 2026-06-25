@@ -58,7 +58,8 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: 'jochym/indi-3rdparty'
-          ref: refs/tags/v${{ env.VERSION }}
+          # We are building HEAD
+          #ref: refs/tags/v${{ env.VERSION }}
           path: '3rdparty'
 
       - name: Download core packages (${{ matrix.arch }})
@@ -90,7 +91,7 @@ jobs:
           : > "$BUILD_LOG"
           exec >> "$BUILD_LOG" 2>&1
           cd 3rdparty
-          for lib in lib* ; do
+          for lib in libplayerone ; do
             control_file=debian/$lib/control
             [ -e "$control_file" ] || [ -e "$lib/debian/control" ] || continue
             RAW_DEPS=$(dpkg-checkbuilddeps "$control_file" 2>&1 | \
@@ -147,7 +148,7 @@ jobs:
           : > "$BUILD_LOG"
           exec >> "$BUILD_LOG" 2>&1
           cd 3rdparty
-          for driver in indi-* ; do
+          for driver in indi-celestronaux ; do
             control_file=debian/$driver/control
             [ -e "$control_file" ] || continue
             DRIVER_NAME=$driver
