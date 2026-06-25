@@ -41,7 +41,7 @@ jobs:
       - name: Install build tools
         run: |
           apt-get update
-          apt-get install -y git ca-certificates build-essential curl jq dpkg-dev
+          apt-get install -y git ca-certificates build-essential curl jq dpkg-dev devscripts
 
       - name: Detect upstream release version
         run: |
@@ -94,6 +94,10 @@ jobs:
           for lib in libplayerone ; do
             control_file=debian/$lib/control
             [ -e "$control_file" ] || [ -e "$lib/debian/control" ] || continue
+
+            # Detect and install build deps
+            mk-build-deps -i -r -t "apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends -y" "debian/$driver/control"
+            
             RAW_DEPS=$(dpkg-checkbuilddeps "$control_file" 2>&1 | \
                         sed -E 's/^.*unmet build dependencies:\s*//Ii' | \
                         sed -e 's/([^)]*)//g' -e 's/,//g')
