@@ -1,0 +1,124 @@
+name: INDI Release Check
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: release-pipeline
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      build_needed: ${{ steps.ver.outputs.build_needed }}
+      core_changed: ${{ steps.ver.outputs.core_changed }}
+      thirdparty_changed: ${{ steps.ver.outputs.thirdparty_changed }}
+    steps:
+      - name: Check upstream releases vs our releases
+        id: ver
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${{ github.repository }}"
+          CORE=$(curl -s https://api.github.com/repos/indilib/indi/releases/latest | jq -r .tag_name | sed 's/^v//')
+          CORE="${CORE:-2.2.2}"
+          THIRD=$(curl -s https://api.github.com/repos/indilib/indi-3rdparty/releases/latest | jq -r .tag_name | sed 's/^v//')
+          THIRD="${THIRD:-2.2.2.1}"
+
+          TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          API="https://api.github.com/repos/$REPO"
+
+          # Check latest release
+          OUR_TAG=$(curl -s -H "Authorization: token $TOKEN" \
+            "$API/releases/latest" | jq -r '.tag_name // "v0.0.0"' | sed 's/^v//')
+
+          OUR_CORE="0.0.0"; OUR_THIRD="0.0.0"
+          if [ "$OUR_TAG" != "0.0.0" ]; then
+            BODY=$(curl -s -H "Authorization: token $TOKEN" \
+              "$API/releases/latest" | jq -r '.body // ""')
+            OUR_CORE=$(echo "$BODY" | grep -oP 'indi-core: v\K[0-9.]+' | head -1) && OUR_CORE="${OUR_CORE:-0.0.0}"
+            OUR_THIRD=$(echo "$BODY" | grep -oP 'indi-3rdparty: v\K[0-9.]+' | head -1) && OUR_THIRD="${OUR_THIRD:-0.0.0}"
+          fi
+
+          echo "Release: core v$OUR_CORE, 3rdparty v$OUR_THIRD"
+          echo "Upstream: core v$CORE, 3rdparty v$THIRD"
+
+          # Also check latest successful workflow runs (in case build succeeded but chain didn't complete)
+          LAST_CORE_RUN=$(gh run list --repo "$REPO" --workflow "Build core INDI Libs and Drivers" \
+            --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+          if [ -n "$LAST_CORE_RUN" ] && [ "$LAST_CORE_RUN" != "null" ]; then
+            LOG_CORE=$(gh run view "$LAST_CORE_RUN" --repo "$REPO" --log 2>/dev/null)
+            BUILT_CORE=$(echo "$LOG_CORE" | grep -oP 'Detected package version: \K[0-9.]+' | head -1)
+            if [ -n "$BUILT_CORE" ] && dpkg --compare-versions "$BUILT_CORE" gt "$OUR_CORE"; then
+              echo "Found core v$BUILT_CORE in run #$LAST_CORE_RUN (newer than release)"
+              OUR_CORE="$BUILT_CORE"
+            fi
+          fi
+
+          LAST_THIRD_RUN=$(gh run list --repo "$REPO" --workflow "Build 3rd Party Libs and Drivers" \
+            --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+          if [ -n "$LAST_THIRD_RUN" ] && [ "$LAST_THIRD_RUN" != "null" ]; then
+            LOG_THIRD=$(gh run view "$LAST_THIRD_RUN" --repo "$REPO" --log 2>/dev/null)
+            BUILT_THIRD=$(echo "$LOG_THIRD" | grep -oP 'Detected package version: \K[0-9.]+' | head -1)
+            if [ -n "$BUILT_THIRD" ] && dpkg --compare-versions "$BUILT_THIRD" gt "$OUR_THIRD"; then
+              echo "Found 3rdparty v$BUILT_THIRD in run #$LAST_THIRD_RUN (newer than release)"
+              OUR_THIRD="$BUILT_THIRD"
+            fi
+          fi
+
+          # Also check if any workflow is already running for this version
+          RUNNING_CORE=$(gh run list --repo "$REPO" --workflow "Build core INDI Libs and Drivers" \
+            --branch main --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+          RUNNING_THIRD=$(gh run list --repo "$REPO" --workflow "Build 3rd Party Libs and Drivers" \
+            --branch main --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+
+          echo "Latest core run built: v$OUR_CORE, latest 3rdparty run built: v$OUR_THIRD"
+
+          CORE_CHANGED=false; THIRD_CHANGED=false
+          if [ -z "$RUNNING_CORE" ] || [ "$RUNNING_CORE" = "null" ]; then
+            dpkg --compare-versions "$CORE" gt "$OUR_CORE" && CORE_CHANGED=true
+          else
+            echo "Core build already in progress (run #$RUNNING_CORE), skipping"
+          fi
+          if [ -z "$RUNNING_THIRD" ] || [ "$RUNNING_THIRD" = "null" ]; then
+            dpkg --compare-versions "$THIRD" gt "$OUR_THIRD" && THIRD_CHANGED=true
+          else
+            echo "3rdparty build already in progress (run #$RUNNING_THIRD), skipping"
+          fi
+
+          echo "core_changed=$CORE_CHANGED" >> "$GITHUB_OUTPUT"
+          echo "thirdparty_changed=$THIRD_CHANGED" >> "$GITHUB_OUTPUT"
+
+          if [ "$CORE_CHANGED" = true ] || [ "$THIRD_CHANGED" = true ]; then
+            echo "build_needed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "build_needed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  trigger:
+    needs: [check]
+    if: fromJSON(needs.check.outputs.build_needed)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Trigger core build
+        if: fromJSON(needs.check.outputs.core_changed)
+        run: |
+          gh workflow run alt-indi-core.yml --ref "${{ github.ref_name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger 3rdparty build (only if core unchanged)
+        if: fromJSON(needs.check.outputs.core_changed) == false && fromJSON(needs.check.outputs.thirdparty_changed)
+        run: |
+          gh workflow run alt-indi-3rdparty.yml --ref "${{ github.ref_name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
