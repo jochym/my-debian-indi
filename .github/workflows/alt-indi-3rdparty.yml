@@ -148,13 +148,14 @@ jobs:
           : > "$BUILD_LOG"
           exec >> "$BUILD_LOG" 2>&1
           cd 3rdparty
-          for driver in indi-celestronaux ; do
+          for driver in indi-celestronaux indi-playerone ; do
             control_file=debian/$driver/control
             [ -e "$control_file" ] || continue
             DRIVER_NAME=$driver
             RAW_DEPS=$(dpkg-checkbuilddeps "$control_file" 2>&1 | \
                         sed -E 's/^.*unmet build dependencies:\s*//Ii' | \
                         sed -e 's/([^)]*)//g' -e 's/,//g')
+            echo "::info:: $DRIVER_NAME: RAW build deps: $RAW_DEPS"
             if [ -z "$RAW_DEPS" ]; then
               :
             else
