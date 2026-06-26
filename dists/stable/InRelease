@@ -1,0 +1,42 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Architectures: arm64 amd64
+Codename: stable
+Components: main
+Date: Fri, 26 Jun 2026 16:12:36 +0000
+Description: Debian INDI repository for Debian stable
+Label: Debian INDI Repository
+Origin: Debian INDI
+Suite: stable
+MD5Sum:
+ 4d8c0f3003e674821c3f4e278a768474              217 Release
+ ac01badf81e756c42eb49dc8aafd840d            18306 main/binary-amd64/Packages
+ 67ee1cc17cf9d78b5f96c5dfa37d308f             5037 main/binary-amd64/Packages.gz
+ ac01badf81e756c42eb49dc8aafd840d            18306 main/binary-arm64/Packages
+ 37118514efbb510fb8ca54c8882446ee             5037 main/binary-arm64/Packages.gz
+SHA1:
+ 118a10d7788e4f61d0bfeabd93e4b862d17a248a              217 Release
+ ac8f03f3bbcc942414ae06a94c019b247161b9af            18306 main/binary-amd64/Packages
+ e1a1596cd2969ae16951843ce1a9d81f16be306d             5037 main/binary-amd64/Packages.gz
+ ac8f03f3bbcc942414ae06a94c019b247161b9af            18306 main/binary-arm64/Packages
+ 729faf6c223cfd40d207ebc3c38bde1da7db14fc             5037 main/binary-arm64/Packages.gz
+SHA256:
+ a957639666de0448fa78dc95c436dbe08b1c4a3a5633f0a4299ef767df6c2788              217 Release
+ 7c60bfc66a11dc2dd0756e61099e31ab021b1a136467d1c8b58b2f463344b44a            18306 main/binary-amd64/Packages
+ 87f2069e116918af027eae4a4e69f50c8b88356d0d66a8d9b3331db1875008fb             5037 main/binary-amd64/Packages.gz
+ 7c60bfc66a11dc2dd0756e61099e31ab021b1a136467d1c8b58b2f463344b44a            18306 main/binary-arm64/Packages
+ 30bf6b030f2f5c4ac1f164c5b617bb04ea87091053d1d88b5830a4fc1fc83d8f             5037 main/binary-arm64/Packages.gz
+SHA512:
+ 7a7f8b0315eaa8db2d7cc39502baf1ab4c6ee416fb7de1354bab6f840cb3b429ff7ac27a6fa647496d7666fe13e0a28ceaf9ade81715f2f9dbc3cf70d0b28773              217 Release
+ bc6f86247e14414cce8cb1b0edef39d6bb6570bcca9bfa3664e5e4e9c9ad82b18f77c465b40e61cb28b88971e5b4b155ffb0903549237489bedb6ae63beeddfa            18306 main/binary-amd64/Packages
+ d0f803fae0eff1095bef0931ee85a1641af9390e7feda5766a67699bddb519fcee41e5cc5c4dec01238031fc4746508f1ee762a24353626d01afe1414f65e983             5037 main/binary-amd64/Packages.gz
+ bc6f86247e14414cce8cb1b0edef39d6bb6570bcca9bfa3664e5e4e9c9ad82b18f77c465b40e61cb28b88971e5b4b155ffb0903549237489bedb6ae63beeddfa            18306 main/binary-arm64/Packages
+ a3643a344efd6bc9e41e9a9c08e77f064d0d80088c258c59bf9857c43f340398a9485164d69a541f052d5a197b41e6335aab75ecb9876014245d237eb230e060             5037 main/binary-arm64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQL2cCX5cbMGwXAf8jk1MJQEYYsWAUCaj6k9AAKCRDk1MJQEYYs
+WKUvAQCxZNYoVnXSxoNSvpdKnPJZmyoJ7pV7JK76cThsA9RF5QD+Ooqf6BIw1zVZ
+HIinyXYI69WSpIGy2ut4/riMSal5FA0=
+=CCMO
+-----END PGP SIGNATURE-----
