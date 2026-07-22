@@ -58,6 +58,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: 'jochym/indi-3rdparty'
+          ref: 'my-debian-indi'
           # We are building HEAD
           #ref: refs/tags/v${{ env.VERSION }}
           path: '3rdparty'
