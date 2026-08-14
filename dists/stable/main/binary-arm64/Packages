@@ -1,0 +1,371 @@
+Package: indi-3rdparty-drivers
+Architecture: amd64
+Version: 1:2.2.4.1-meta+ab20260814-r13
+Priority: optional
+Section: misc
+Maintainer: Debian INDI Build System <jochym@debian-indi>
+Depends: indi-3rdparty-libs (>= 1:2.2.4.1-meta+ab20260814-r13)
+Recommends: indi-celestronaux-dbgsym, indi-celestronaux, indi-playerone-dbg, indi-playerone-dbgsym, indi-playerone
+Filename: pool/main/indi-3rdparty-drivers_2.2.4.1-meta_amd64.deb
+Size: 924
+MD5sum: 89a3110c97ae215dd684e31156cf8795
+SHA1: 5abc04c497a4f362475b47dd71ab277b5601a98b
+SHA256: 9208d155125ca89f04e7e4bcfde1582d913ca43febddad6ef31bcb8c216e4a47
+SHA512: 5d3a095ace4f8d719aeeaa6e2e03a6e8b4b2cbd0ce7c63cb9dd0cc599cf5d0191aedb27acf03205b1cc9b8aad02b0943a33c095f4b23dc6a1187227d887e2952
+Description: Meta-package for INDI 3rd party drivers (amd64)
+ This meta-package recommends all compiled 3rd party drivers
+ for the amd64 architecture.
+ Using Recommends allows users to safely remove or replace individual
+ drivers without breaking the meta-package dependency chain.
+
+Package: indi-3rdparty-drivers
+Architecture: arm64
+Version: 1:2.2.4.1-meta+ab20260814-r13
+Priority: optional
+Section: misc
+Maintainer: Debian INDI Build System <jochym@debian-indi>
+Depends: indi-3rdparty-libs (>= 1:2.2.4.1-meta+ab20260814-r13)
+Recommends: indi-celestronaux-dbgsym, indi-celestronaux, indi-playerone-dbg, indi-playerone-dbgsym, indi-playerone
+Filename: pool/main/indi-3rdparty-drivers_2.2.4.1-meta_arm64.deb
+Size: 920
+MD5sum: 0ed8ef7d6249ca0e28835d1641ea2f02
+SHA1: 30a3aeeeab7b396ee60a24a9ad60ff4da75345ab
+SHA256: 45041ff7929bbae7c96db88bc4b9320f1c63b12b71a95da47f0b15aec198ded8
+SHA512: 4bb3122edfb08850129396e890ae82461a55fe103e7efb4ab61095032e78a3b17d8c788476db8fa6a2c3e57933c06cea5f1f18bdcbfa315dc2dc1f331a71555d
+Description: Meta-package for INDI 3rd party drivers (arm64)
+ This meta-package recommends all compiled 3rd party drivers
+ for the arm64 architecture.
+ Using Recommends allows users to safely remove or replace individual
+ drivers without breaking the meta-package dependency chain.
+
+Package: indi-3rdparty-libs
+Architecture: amd64
+Version: 1:2.2.4.1-meta+ab20260814-r13
+Priority: optional
+Section: misc
+Maintainer: Debian INDI Build System <jochym@debian-indi>
+Filename: pool/main/indi-3rdparty-libs_2.2.4.1-meta_amd64.deb
+Size: 836
+MD5sum: c2c90acb66701fe90396208f76d7bd05
+SHA1: c2337616a0f9bd94e1a89a7dc2e1ffc2dac07c51
+SHA256: a8b01c161cd7fd70b24a881f5f205e179b5fced8fc88be21f2cf21a3173866da
+SHA512: ba22d397b5e4350b539509cdfa15ed27da70c2eee82e2a4165aed033ff5fe53d4f2c8e815bb55df3eb32ba2f90d890cb50931883b5e51685556fd7d03ba6a685
+Description: INDI 3rd party libraries meta-package (amd64)
+  Empty meta-package for compatibility with astroberry-OS repository structure.
+  Version epochs guarantee this package supersedes the astroberry-OS one.
+
+Package: indi-3rdparty-libs
+Architecture: arm64
+Version: 1:2.2.4.1-meta+ab20260814-r13
+Priority: optional
+Section: misc
+Maintainer: Debian INDI Build System <jochym@debian-indi>
+Filename: pool/main/indi-3rdparty-libs_2.2.4.1-meta_arm64.deb
+Size: 832
+MD5sum: 798e513fa0fe1ecd42e498993e9a4ea1
+SHA1: 2bf97805dab26a2839b3ccc6ca1fcf4e1d319495
+SHA256: 56703df6bf0b5f5da772616b6733363a6867fc551f40980f2e90b2b57d432b83
+SHA512: 4a2077d8b448426f30521d7ea55fd6129125ad43efcdb3b0176ab71cbfd19d3f27411054f801828454e70912e17d1ab6e28cb09015a262678faf40e2d328fbbd
+Description: INDI 3rd party libraries meta-package (arm64)
+  Empty meta-package for compatibility with astroberry-OS repository structure.
+  Version epochs guarantee this package supersedes the astroberry-OS one.
+
+Package: indi-bin
+Architecture: amd64
+Version: 2.2.4+ab20260814-r4
+Priority: optional
+Section: misc
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 26154
+Depends: libc6 (>= 2.38), libcfitsio10t64 (>= 4.2.0~), libcurl3t64-gnutls (>= 7.16.2), libev4t64 (>= 1:4.04), libgcc-s1 (>= 3.0), libindi1, libnova-0.16-0t64 (>= 0.16), librtlsdr0, libstdc++6 (>= 14), libusb-1.0-0 (>= 2:1.0.9), zlib1g (>= 1:1.1.4), libindi-data (>= 2.2.4+ab20260814-r4)
+Conflicts: indi-astrolink4, indi-astromechfoc, indi-dreamfocuser, indi-spectracyber
+Replaces: indi-astrolink4, indi-astromechfoc, indi-dreamfocuser, indi-spectracyber
+Filename: pool/main/indi-bin_2.2.4.ab20260814-r4_amd64.deb
+Size: 4112716
+MD5sum: 6a569f4f52e2a008eec46829c7490b66
+SHA1: 54eeec1e0c143221416d9a01cf8ed584479ccd82
+SHA256: 1925485389f6110511fb25a802346c74abb9b697d1cb76788f1a1408f8823a6d
+SHA512: 5b6161d5bd6b1c8ccead3a5cd54f1fc4f2f1083cc0fbad32cd15de66674be86cb75b2bc04f9f3876ebc5cca367bb17a2dedeed45e038dfd9defee5bdd9e60ac9
+Homepage: http://www.indilib.org/
+Description: INDI server, drivers and tools
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains the INDI server, the drivers for the supported
+ astronomical instrumentation, and other INDI tools.
+
+Package: indi-bin
+Architecture: arm64
+Version: 2.2.4+ab20260814-r4
+Priority: optional
+Section: misc
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 30254
+Depends: libc6 (>= 2.38), libcfitsio10t64 (>= 4.2.0~), libcurl3t64-gnutls (>= 7.16.2), libev4t64 (>= 1:4.04), libgcc-s1 (>= 3.0), libindi1, libnova-0.16-0t64 (>= 0.16), librtlsdr0, libstdc++6 (>= 14), libusb-1.0-0 (>= 2:1.0.9), zlib1g (>= 1:1.1.4), libindi-data (>= 2.2.4+ab20260814-r4)
+Conflicts: indi-astrolink4, indi-astromechfoc, indi-dreamfocuser, indi-spectracyber
+Replaces: indi-astrolink4, indi-astromechfoc, indi-dreamfocuser, indi-spectracyber
+Filename: pool/main/indi-bin_2.2.4.ab20260814-r4_arm64.deb
+Size: 3729000
+MD5sum: 9586e8cd37012900b7f4bd7bf40b4492
+SHA1: 3ea23bd577ddbc7fd4f39d188012774a0239ab5f
+SHA256: 1ebf4db7b21c639abf01e98c49b89cee44e744535d595460ce9050c6d62ccb95
+SHA512: 0d3febf6172443c90a2ca1a6b9dd88d8aa18eb3f96715e7a9308a0f15d2f1dfac2d005c52396bb509deb1aa05c129d2e8322f43f0be7dc8f8b839cddbf842dd8
+Homepage: http://www.indilib.org/
+Description: INDI server, drivers and tools
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains the INDI server, the drivers for the supported
+ astronomical instrumentation, and other INDI tools.
+
+Package: indi-celestronaux
+Architecture: amd64
+Version: 1.8+ab20260814-r16
+Priority: extra
+Section: science
+Maintainer: Pawel T. Jochym <jochym@wolf.ifj.edu.pl>
+Original-Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 198
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libindi1, libnova-0.16-0t64 (>= 0.16), libstdc++6 (>= 13.1)
+Filename: pool/main/indi-celestronaux_1.8.ab20260814-r16_amd64.deb
+Size: 63816
+MD5sum: 127323e3324c43f427249b5eb2d4b175
+SHA1: 13557cd0a824ed1f631e6bd464f8544876fa75af
+SHA256: 7953623c782037bb547778b1e99d377d14b054891f713ee82a1e676f6dbabb43
+SHA512: 0789dbc4bb26ff2022f0144aa5dad9c8f2fbfa0ab24826718a1f37de31a69a3dbff2a1545f26f2fe057c0bab5cc3ae755e3c6175dcc2c9674c8edf0c4a31d606
+Description: INDI driver for Celestron mounts in AUX mode.
+ .
+ This is a driver for Celestron telescope mounts working in the AUX mode without hand controller.
+ .
+ This driver is compatible with any INDI client such as KStars or Xephem.
+
+Package: indi-celestronaux
+Architecture: arm64
+Version: 1.8+ab20260814-r16
+Priority: extra
+Section: science
+Maintainer: Pawel T. Jochym <jochym@wolf.ifj.edu.pl>
+Original-Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 210
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libindi1, libnova-0.16-0t64 (>= 0.16), libstdc++6 (>= 13.1)
+Filename: pool/main/indi-celestronaux_1.8.ab20260814-r16_arm64.deb
+Size: 57508
+MD5sum: 91165b77f84ac448c231021c04207ecc
+SHA1: 84edf0baa43b6c4cbe7d408491477117136592e5
+SHA256: 4fcc46d531289e25ed20de1b3c6674e731ba9fc8139a468cd57c28eb16f2662a
+SHA512: 97e63fcaa64394231ab6f54ad5f001757e2aa7c432d658af60ab0f856eee20ae153a07e0c29dea38e703a74bda5fd7898aca92a7abb521461c2fcf130d58dddf
+Description: INDI driver for Celestron mounts in AUX mode.
+ .
+ This is a driver for Celestron telescope mounts working in the AUX mode without hand controller.
+ .
+ This driver is compatible with any INDI client such as KStars or Xephem.
+
+Package: indi-playerone
+Architecture: amd64
+Version: 1.22+ab20260814-r16
+Priority: extra
+Section: science
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 340
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libindi1, libplayerone, libstdc++6 (>= 11)
+Filename: pool/main/indi-playerone_1.22.ab20260814-r16_amd64.deb
+Size: 83192
+MD5sum: b8db5d9bf740e0f5722a18bb3800b989
+SHA1: 58576bec27bcc9a485fa08e41d9a1b749a3a7432
+SHA256: 1eb6c3c77a2a6ad8c6de60bd1ce932f0ac54e48ac8f50bd24175ce73476d8bb1
+SHA512: 716b10c37cbebcab6f7345b1854601ab4c83f5b9e0d9231ae58663ce650965b7b60efcb376290b269024e3d71d0b374b6f55210881d97ddd4c98c1e5dcfa805b
+Description: INDI Driver for Playerone based cameras
+ Driver for Playerone based cameras.
+ .
+ This driver is compatible with any INDI client such as KStars or Xephem.
+
+Package: indi-playerone
+Architecture: arm64
+Version: 1.22+ab20260814-r16
+Priority: extra
+Section: science
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 540
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libindi1, libplayerone, libstdc++6 (>= 11)
+Filename: pool/main/indi-playerone_1.22.ab20260814-r16_arm64.deb
+Size: 72284
+MD5sum: e35c1d20c23f30ecfa7b71e27e97b496
+SHA1: b31b8596c1cad7320744f282001aeac0c5c346ca
+SHA256: 3a4e6a07f2e36ad89d58a294f9238af8a7822784611b8c0c81fa827166d35de4
+SHA512: 428379332826f5e558deb0a77ae5ddb4830f2f66fd06edf9e2317650b34f3abda0c523e3a48f3c30c493cab55202fcaa39bf1d552f1232f78a00f272be4ff225
+Description: INDI Driver for Playerone based cameras
+ Driver for Playerone based cameras.
+ .
+ This driver is compatible with any INDI client such as KStars or Xephem.
+
+Package: libindi-data
+Architecture: all
+Version: 2.2.4+ab20260814-r4
+Multi-Arch: foreign
+Priority: optional
+Section: misc
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 123
+Filename: pool/main/libindi-data_2.2.4.ab20260814-r4_all.deb
+Size: 62388
+MD5sum: 29bf26eac55938ec90a4032051e01f4b
+SHA1: d63c5eba8646b4d64332cc8d7e50e730b9e57dc4
+SHA256: e44a768ad9a8d85135c8d5b8809c79fa99ebb782379c6656f7a4446b7f94b5f8
+SHA512: 1d2ee2ecbc0138d5175e8467ebe4bbd25e2c3b926d235fd888e38922a7eb0afa1ce85336d9a506847339c6cf1bddeeae3e82eba9970bde54cb8223ed9c9e4aa8
+Homepage: http://www.indilib.org/
+Description: Instrument-Neutral Device Interface library -- shared data
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains the data files for the INDI library.
+
+Package: libindi-dev
+Architecture: amd64
+Version: 2.2.4+ab20260814-r4
+Priority: optional
+Section: libdevel
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 10104
+Depends: libindi1 (= 2.2.4+ab20260814-r4), libusb-1.0-0-dev
+Filename: pool/main/libindi-dev_2.2.4.ab20260814-r4_amd64.deb
+Size: 1144740
+MD5sum: 95246b44732f686aebb79e0d5bcb4a4e
+SHA1: 204df13527f6ae31887f93103d4e7d917abbce29
+SHA256: 434e6a2a957601d7a0b1628b97a60fef30c3cc046f10a7b0a0ceb16ebd166d96
+SHA512: 1ea93fee20ac11f65e7c5af595d319b1f8371f4550762dfd4c16c59e3aafe85e6feb47ecaeb115d6eab2ec296cc08a66c6f08bed77dbb8d82762206782011113
+Homepage: http://www.indilib.org/
+Description: Instrument-Neutral Device Interface library -- development files
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains development headers and libraries for the INDI library.
+
+Package: libindi-dev
+Architecture: arm64
+Version: 2.2.4+ab20260814-r4
+Priority: optional
+Section: libdevel
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 10146
+Depends: libindi1 (= 2.2.4+ab20260814-r4), libusb-1.0-0-dev
+Filename: pool/main/libindi-dev_2.2.4.ab20260814-r4_arm64.deb
+Size: 1102000
+MD5sum: 91076d23f0ea9c401931eeaa2c7da42c
+SHA1: c7596df74a69817b5bb7aa928dd88c477db6ec9d
+SHA256: cc54287ccca3707409bce2b15b7342a3953d62246635f97613d2bede2c921829
+SHA512: d9ee92d2af934bf96b811a48eeab8664cae1d9fa5895ef42972e5d280370ca4590ff28462faf3d3cbf8c86e7086122e1151711604dd442a11a0ffc4d440633ba
+Homepage: http://www.indilib.org/
+Description: Instrument-Neutral Device Interface library -- development files
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains development headers and libraries for the INDI library.
+
+Package: libindi1
+Architecture: amd64
+Version: 2.2.4+ab20260814-r4
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 3864
+Depends: libc6 (>= 2.38), libcfitsio10t64 (>= 4.2.0~), libcurl3t64-gnutls (>= 7.16.2), liberfa1 (>= 1.5.0), libfftw3-double3 (>= 3.3.10), libgcc-s1 (>= 3.0), libgsl28 (>= 2.8+dfsg), libgslcblas0 (>= 2.8), libjpeg62-turbo (>= 1.3.1), libnova-0.16-0t64 (>= 0.16), libogg0 (>= 1.0rc3), libstdc++6 (>= 14), libtheoradec1 (>= 1.0), libtheoraenc1 (>= 1.0), libudev1 (>= 183), libusb-1.0-0 (>= 2:1.0.9), libxisf0 (>= 0.2.13), zlib1g (>= 1:1.1.4), libindi-data (>= 2.2.4+ab20260814-r4), indi-bin (>= 2.2.4+ab20260814-r4)
+Conflicts: libindi-plugins, libindi0, libindialignmentdriver1, libindidriver1
+Replaces: libindi-plugins, libindi0, libindialignmentdriver1, libindidriver1
+Filename: pool/main/libindi1_2.2.4.ab20260814-r4_amd64.deb
+Size: 890316
+MD5sum: 7d35815e9b69c5984d44675d193c21ee
+SHA1: c60365310247951e83f337cc021ec77badf67625
+SHA256: 9569e3594f05749f936fecaf3e2a81ed5c2857354369ea50d1dcedb03ba90c64
+SHA512: 5a19a8131d7cda76fbe97e1446a9c3ded98527000bcdc8e7f66d79e6f4479e0aacec798878d9579b7fed41ff25736b6f826f719c2a01abc523dfeff6d329048e
+Homepage: http://www.indilib.org/
+Description: Instrument-Neutral Device Interface library -- shared library
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains the shared library.
+
+Package: libindi1
+Architecture: arm64
+Version: 2.2.4+ab20260814-r4
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libindi
+Maintainer: Jasem Mutlaq <mutlaqja@ikarustech.com>
+Installed-Size: 3880
+Depends: libc6 (>= 2.38), libcfitsio10t64 (>= 4.2.0~), libcurl3t64-gnutls (>= 7.16.2), liberfa1 (>= 1.5.0), libfftw3-double3 (>= 3.3.10), libgcc-s1 (>= 3.0), libgsl28 (>= 2.8+dfsg), libgslcblas0 (>= 2.8), libjpeg62-turbo (>= 1.3.1), libnova-0.16-0t64 (>= 0.16), libogg0 (>= 1.0rc3), libstdc++6 (>= 14), libtheoradec1 (>= 1.0), libtheoraenc1 (>= 1.0), libudev1 (>= 183), libusb-1.0-0 (>= 2:1.0.9), libxisf0 (>= 0.2.13), zlib1g (>= 1:1.1.4), libindi-data (>= 2.2.4+ab20260814-r4), indi-bin (>= 2.2.4+ab20260814-r4)
+Conflicts: libindi-plugins, libindi0, libindialignmentdriver1, libindidriver1
+Replaces: libindi-plugins, libindi0, libindialignmentdriver1, libindidriver1
+Filename: pool/main/libindi1_2.2.4.ab20260814-r4_arm64.deb
+Size: 795428
+MD5sum: 9cf7e46ce06d13d3efcd1cfa84f98f3e
+SHA1: 963db4de76eb007eefa8c948be1cd61fb8cd13ad
+SHA256: ab6bdae84f8981e96d4dd1b691c7d31551d574a829e02204d215044d60df7ec3
+SHA512: 46912245fbdadfbefb63a84f15c2f31dd8161f736ab2a8ff2055b5c5e4cd8dc243d5e57230ac4bb0790ec3ea8d34d7de2c404944c828b3758750ca9358ba7ed5
+Homepage: http://www.indilib.org/
+Description: Instrument-Neutral Device Interface library -- shared library
+ INDI (Instrument-Neutral Device Interface) is a distributed XML-based
+ control protocol designed to operate astronomical instrumentation.
+ INDI is small, flexible, easy to parse, scalable, and stateless.
+ It supports common DCS functions such as remote control, data acquisition,
+ monitoring, and a lot more.
+ .
+ This package contains the shared library.
+
+Package: libplayerone
+Architecture: amd64
+Version: 1.18+ab20260814-r16
+Priority: extra
+Section: libs
+Maintainer: Hiroshi SAITO <hiro3110g@gmail.com>
+Installed-Size: 629
+Depends: libc6 (>= 2.27), libgcc-s1 (>= 3.0), libstdc++6 (>= 6), libudev1 (>= 183), libusb-1.0-0 (>= 2:1.0.16)
+Filename: pool/main/libplayerone_1.18.ab20260814-r16_amd64.deb
+Size: 177900
+MD5sum: c7d473558bcf0447f810f1c9e51ec1fd
+SHA1: 10b68c204489119335390684e54cf0235899f567
+SHA256: bec22fb091635c28c194af0cc8194c571308d4f09c1ccb914faee8bce1c2a54b
+SHA512: 7c251c98845d48527e7ce4b019e63c7b18c56e8b118c5245cc3f91f4fb4cdba02a93b0b8fab141909c0093ed75d88084320d646abeab58ed7f4b06c2b69e1050
+Description: Library for Player One Astronomy's Cameras
+
+Package: libplayerone
+Architecture: arm64
+Version: 1.18+ab20260814-r16
+Priority: extra
+Section: libs
+Maintainer: Hiroshi SAITO <hiro3110g@gmail.com>
+Installed-Size: 601
+Depends: libc6 (>= 2.27), libgcc-s1 (>= 3.0), libstdc++6 (>= 6), libudev1 (>= 183), libusb-1.0-0 (>= 2:1.0.16)
+Filename: pool/main/libplayerone_1.18.ab20260814-r16_arm64.deb
+Size: 159536
+MD5sum: 523cece2763fc00bac759cfe167beccc
+SHA1: 1e6b5a7fe7c44aa90dc7d34f64019d52c9509009
+SHA256: e1b192fee92bd9080de265bade9fb44b2826bf5dc563b8a0e8a4024e8cae0554
+SHA512: fcdda1ec46af710d303ee85f46650a42acdec1f699008e226bdb631e16e36fc55832e8d3f274ba6a2c89f1cf4c6824470f6e4d0624af59d3dabbf0d0374aba87
+Description: Library for Player One Astronomy's Cameras
+
